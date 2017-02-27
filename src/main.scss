@@ -14,3 +14,64 @@ $text-color: #4C4C4C !default;
 $dark-color: #000000 !default;
 $emphasis-color: #f3c642 !default;
 $secondary-emphasis-color: #e78352 !default;
+
+.user-list {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+
+    td.initials {
+        font-weight: bold;
+        line-height: 3em;
+        width: 3em;
+        height: 3em;
+        background-color: $main-color;
+        text-align: center;
+        color: #FFF;
+        font-family: helvetica,arial,sans-serif;
+        font-size: .8em;
+        margin-right: 5px;
+        display: inline-block;
+        border-radius: 50%;
+        text-transform: uppercase;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    td.user-data {
+        min-width: 350px;
+        p {
+            margin: 0;
+
+            &:first-of-type {
+                font-weight: bold;
+                color: $dark-color;
+                text-transform: capitalize;
+            }
+
+            &:last-of-type {
+                color: $text-color;
+                text-transform: lowercase;
+                font-style: italic;
+            }
+        }
+    }
+
+    td.actions {
+        button {
+            cursor: pointer;
+        }
+    }
+}
+
+span.label {
+    font-variant: all-small-caps;
+    width: 25%;
+    display: inline-block;
+}
+
+input[type=text] {
+    width: 60%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}

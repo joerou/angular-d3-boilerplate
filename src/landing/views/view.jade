@@ -1,2 +1,33 @@
 h1 Hello!
-pre {{ users|json }}
+div
+    table.user-list
+        tr(ng-repeat-start="user in users")
+            td.initials
+                {{ getUserInitials(user) }}
+
+            td.user-data
+                p {{ user.firstname }} {{ user.lastname }}
+                p {{ user.username }}
+                p {{ user.roles }}
+
+            td.actions
+                button(ng-click="expand = !expand") Edit
+        tr.expand(ng-repeat-end ng-show="expand")
+            td
+            td
+                div
+                    span.label First Name
+                    input(type="text" ng-model="user.firstname")
+                div
+                    span.label Last Name
+                    input(type="text" ng-model="user.lastname")
+                div
+                    span.label Username
+                    input(type="text" ng-model="user.username")
+                div
+                    span.label Email
+                    input(type="text" ng-model="user.email")
+                div(ng-repeat="role in availableRoles")
+                    label {{ role }}
+                    input(type="checkbox" ng-checked="checkRoles(role, user.roles)" ng-click="user.roles=updateRoles(role, user.roles); expand = !expand")
+            td
